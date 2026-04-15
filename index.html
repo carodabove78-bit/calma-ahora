@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Calma Ahora</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: linear-gradient(#dff5f5, #ffffff);
+      text-align: center;
+      padding: 30px;
+      color: #333;
+    }
+
+    h1 {
+      color: #2a7f7f;
+    }
+
+    .container {
+      max-width: 400px;
+      margin: auto;
+    }
+
+    .boton-calma {
+      background-color: #2a7f7f;
+      color: white;
+      border: none;
+      padding: 20px;
+      font-size: 18px;
+      border-radius: 10px;
+      margin-top: 30px;
+      cursor: pointer;
+      width: 100%;
+    }
+
+    .respiracion {
+      margin-top: 30px;
+      font-size: 20px;
+      display: none;
+    }
+
+    .whatsapp {
+      margin-top: 20px;
+      display: none;
+    }
+
+    .whatsapp button {
+      background-color: #25D366;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 5px;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <h1>🌿 Calma Ahora</h1>
+    <p>No estás sola. Este es tu espacio para volver a vos.</p>
+
+    <button class="boton-calma" onclick="activarCalma()">
+      No me siento bien
+    </button>
+
+    <div class="respiracion" id="respiracion">
+      🌬️ Inhalá profundo...<br>
+      🌿 Exhalá lento...<br><br>
+      Repetí esto varias veces. Estoy con vos 💛
+    </div>
+
+    <div class="whatsapp" id="whatsapp">
+      <p>¿Querés que te acompañe?</p>
+      <button onclick="irWhatsApp()">Hablar ahora</button>
+    </div>
+  </div>
+
+  <!-- AUDIO -->
+  <audio controls src="calma.mp3"></audio> 
+  <audio id="audioCalma" 
+  src="https:soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3"></audio>
+  
+
+  <script>
+    function activarCalma() {
+      document.getElementById("respiracion").style.display = "block";
+      document.getElementById("whatsapp").style.display = "block";
+
+      var audio = document.getElementById("audioCalma");
+      if (audio) {
+        audio.play();
+      }
+    }
+
+    function irWhatsApp() {
+      let numero = "5493584240173"; // tu número
+
+      let mensaje = "Hola, no me estoy sintiendo bien y necesito acompañamiento.";
+
+      let url = `https://wa.me/${numero}?text=${encodeURIComponent(mensaje)}`;
+
+      window.open(url, "_blank");
+    }
+  </script>
+
+</body>
+</html>
